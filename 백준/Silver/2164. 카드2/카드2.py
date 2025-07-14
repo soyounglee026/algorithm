@@ -1,13 +1,8 @@
-N = int(input())
-cards = [0, 1, 2, 2, 4]
+import collections
 
-i = 5
-while len(cards) <= N:
-  n = cards[i-1]+2
-  if n > i:
-    n = 2
-    cards.append(n)
-  else:
-    cards.append(n)
-  i += 1
-print(cards[N])
+cards = collections.deque(i for i in range(1, int(input())+1))
+
+while len(cards) != 1:
+  cards.popleft()
+  cards.append(cards.popleft())
+print(*cards)
