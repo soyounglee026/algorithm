@@ -12,11 +12,7 @@ def backtracking():
 
   for i in range(1, N+1):
     if i not in res:
-      if len(res) == 0:
-        res.append(i)
-        backtracking()
-        res.pop()
-      elif res[-1] < i:
+      if len(res) == 0 or res[-1] < i:
         res.append(i)
         backtracking()
         res.pop()
